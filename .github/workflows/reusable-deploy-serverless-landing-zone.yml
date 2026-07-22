@@ -28,6 +28,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: ${{ vars.AWS_IAM_ROLE_ARN }}
           role-session-name: serverless-deployment-${{ inputs.STAGE }}-session
+          audience: sts.amazonaws.com
 
       - uses: actions/setup-node@v4
         with:
