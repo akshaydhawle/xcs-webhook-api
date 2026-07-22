@@ -1,0 +1,13 @@
+name: aws
+region: ${env:AWS_REGION, "us-east-1"}
+runtime: nodejs20.x
+stage: ${opt:stage, "local"}
+timeout: 29
+memorySize: 256
+environment:
+  LOG_LEVEL: ${env:LOG_LEVEL, "info"}
+  SERVICE_NAME: ${self:service}
+  IS_OFFLINE: ${env:IS_OFFLINE, "false"}
+iam:
+  role:
+    name: ${self:service}-${self:provider.stage}-exec-role

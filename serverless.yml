@@ -1,0 +1,7 @@
+service: '${env:SERVICE_NAME_PREFIX, "webhook-api-local"}'
+frameworkVersion: '3'
+custom: '${file(./serverless-config/custom.yml)}'
+provider: '${file(./serverless-config/provider.yml)}'
+useDotenv: true
+functions: '${file(serverless-config/functions.yml)}'
+plugins: ${file(serverless-config/plugins.yml):plugins}

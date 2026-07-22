@@ -1,0 +1,53 @@
+healthCheck:
+  handler: src/handlers/healthCheck.handler
+  events:
+    - http:
+        method: get
+        path: v1/health-check
+
+createWebhook:
+  handler: src/handlers/createWebhook.handler
+  events:
+    - http:
+        method: post
+        path: v1/webhook
+
+getWebhook:
+  handler: src/handlers/getWebhook.handler
+  events:
+    - http:
+        method: get
+        path: v1/webhook/{webhook_id}
+
+getWebhooks:
+  handler: src/handlers/getWebhooks.handler
+  events:
+    - http:
+        method: get
+        path: v1/webhooks
+        request:
+          parameters:
+            querystrings:
+              account_id: true
+              event_type: false
+
+updateWebhook:
+  handler: src/handlers/updateWebhook.handler
+  events:
+    - http:
+        method: patch
+        path: v1/webhook/{webhook_id}
+
+statusUpdateWebhook:
+  handler: src/handlers/statusUpdateWebhook.handler
+  events:
+    - http:
+        method: put
+        path: v1/webhook/{webhook_id}/status
+
+getPublicKey:
+  handler: src/handlers/getPublicKey.handler
+  events:
+    - http:
+        method: get
+        path: v1/public-key/{key_id}

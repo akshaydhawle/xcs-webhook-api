@@ -1,0 +1,9 @@
+node_modules
+jspm_packages
+.serverless
+coverage
+.env
+.build
+.esbuild
+.idea
+.DS_Store

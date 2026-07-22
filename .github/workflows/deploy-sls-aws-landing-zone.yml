@@ -1,0 +1,25 @@
+name: deploy - Deploy Serverless service to AWS Landing Zone
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-dev:
+    name: Deploy-dev-sls-lz
+    concurrency:
+      group: ${{ github.repository }}-deploy-dev
+    uses: ./.github/workflows/reusable-deploy-serverless-landing-zone.yml
+    secrets: inherit
+    permissions:
+      id-token: write
+      contents: read
+    with:
+      ENVIRONMENT: aws-xcs-shared-technology-dev-usea1-env
+      STAGE: dev
