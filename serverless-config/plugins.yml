@@ -1,4 +1,5 @@
 plugins:
   - serverless-dotenv-plugin
+  - serverless-domain-manager
   - serverless-esbuild
   - serverless-offline

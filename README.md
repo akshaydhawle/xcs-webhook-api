@@ -26,6 +26,10 @@ npm start
 
 Offline default: `http://localhost:3001`
 
+On AWS deploy, `serverless-domain-manager` maps the API under the shared custom domain
+(`API_GATEWAY_CUSTOM_DOMAIN` / SSM) with base path `API_GATEWAY_SUFFIX` (default `webhook-api`),
+same as the Python service — e.g. `https://api.astraaries.site/webhook/...`.
+
 Examples:
 
 ```bash

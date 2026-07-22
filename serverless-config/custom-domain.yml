@@ -1,0 +1,8 @@
+domainName: ${env:API_GATEWAY_CUSTOM_DOMAIN, ssm:${self:custom.secretsPrefix}/API_GATEWAY_CUSTOM_DOMAIN}
+stage: ${opt:stage, "local"}
+basePath: ${env:API_GATEWAY_SUFFIX, ssm:${self:custom.secretsPrefix}/API_GATEWAY_SUFFIX, "webhook-api"}
+createRoute53Record: false
+createRoute53IPv6Record: false
+apiType: rest
+autoDomain: false
+endpointType: edge

@@ -1,6 +1,7 @@
 secretsPrefix: '/${env:SERVICE_NAME_PREFIX, "local"}'
 stage: '${opt:stage, self:provider.stage, "local"}'
 stackName: '${self:service}'
+customDomain: '${file(./serverless-config/custom-domain.yml), null}'
 esbuild:
   bundle: true
   minify: false
